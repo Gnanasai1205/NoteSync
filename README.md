@@ -1,4 +1,4 @@
-# NoteSync — Smart Notes & Calendar (Frontend-only)
+# NoteSync — Smart Notes & Calendar
 
 A small local-first React app (Vite) for notes and calendar events using browser localStorage. Features:
 
