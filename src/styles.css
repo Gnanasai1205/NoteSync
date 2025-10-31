@@ -49,15 +49,46 @@ body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvet
 .tag-btn{margin-right:6px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);font-weight:600}
 .tag-btn.active{background:linear-gradient(90deg,var(--accent-400),var(--accent-600));color:white;border-color:transparent;box-shadow:0 8px 20px rgba(99,102,241,0.12)}
 
+.controls button{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer}
+.controls button:hover{background:rgba(255,255,255,0.02);color:#fff;transform:translateY(-2px)}
+.controls button:active{transform:translateY(0)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid transparent;cursor:pointer;font-weight:700}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:linear-gradient(90deg,var(--accent-400),var(--accent-600));color:white;box-shadow:0 8px 26px rgba(109,40,217,0.14);border-color:transparent}
+.btn-primary:hover{transform:translateY(-3px);filter:brightness(1.03)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.btn-ghost:hover{background:rgba(255,255,255,0.02);color:#fff}
+.btn-outline{background:transparent;border:1px dashed rgba(255,255,255,0.06);color:var(--muted)}
+.btn-outline:hover{background:rgba(255,255,255,0.02);color:#fff}
 .notes-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
-.note-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:var(--radius-md);box-shadow:0 8px 30px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.02)}
+.note-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:var(--radius-md);box-shadow:0 8px 30px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.02);transition:transform .16s ease, box-shadow .16s ease}
+.note-card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(2,6,23,0.6)}
 .note-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .note-head h3{margin:0;font-size:16px}
 .note-actions button{margin-left:6px;background:transparent;border:1px solid rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;color:var(--muted);cursor:pointer}
 .note-actions button:hover{background:rgba(255,255,255,0.02);color:#fff}
-.note-body{margin-top:10px;color:rgba(230,238,248,0.95);font-size:14px;line-height:1.4;max-height:120px;overflow:hidden}
+
+/* Pinned badge and accent */
+.note-card[data-pinned="true"]{border-left-width:6px}
+.note-card[data-pinned="true"]::after{content:'PINNED';position:absolute;margin-top:8px;right:18px;top:12px;background:linear-gradient(90deg,var(--accent-200),var(--accent-400));color:#081023;padding:6px 8px;border-radius:8px;font-weight:800;font-size:11px;box-shadow:0 6px 18px rgba(109,40,217,0.12)}
+.note-card{position:relative}
+.note-body{margin-top:10px;color:rgba(35, 37, 40, 0.95);font-size:14px;line-height:1.4;max-height:140px;overflow:hidden}
 .note-tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
 .note-tag{display:inline-block;background:linear-gradient(90deg, rgba(139,92,246,0.12), rgba(139,92,246,0.06));color:var(--accent-200);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+
+/* tags and filters */
+.tags-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.tag-btn{cursor:pointer}
+
+.notes-top select{padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)}
+.notes-top .search-area{min-width:260px}
+
+/* small screen tweaks for controls */
+@media (max-width:720px){
+  .notes-top{flex-direction:column;align-items:stretch}
+  .notes-top > div{display:flex;justify-content:space-between;align-items:center}
+  .notes-top .search-area{order:2;margin-top:8px}
+}
 
 /* MODAL / EDITOR */
 .modal{position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.6));display:flex;align-items:flex-start;justify-content:center;padding:40px}
@@ -103,3 +134,24 @@ body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvet
 
 /* smooth buttons and inputs */
 button, input, select, textarea{transition:all .12s ease}
+
+/* color swatches for notes */
+.color-swatch{width:28px;height:28px;border-radius:8px;border:2px solid transparent;cursor:pointer;background:#111}
+.color-swatch.selected{outline:3px solid rgba(139,92,246,0.18)}
+.color-swatch[title="neutral"]{background:linear-gradient(180deg,#0b1220,#0f1728)}
+.color-swatch[title="red"]{background:linear-gradient(180deg,#ff7a7a,#ff3b3b)}
+.color-swatch[title="green"]{background:linear-gradient(180deg,#6ee7b7,#10b981)}
+.color-swatch[title="blue"]{background:linear-gradient(180deg,#7cc4ff,#3b82f6)}
+.color-swatch[title="purple"]{background:linear-gradient(180deg,#c7b3ff,#8b5cf6)}
+.color-swatch[title="yellow"]{background:linear-gradient(180deg,#ffe58a,#f59e0b)}
+
+/* show color accent on note card */
+.note-card[data-color="red"]{box-shadow:0 10px 30px rgba(255,59,59,0.06);border-left:6px solid rgba(255,59,59,0.18)}
+.note-card[data-color="green"]{box-shadow:0 10px 30px rgba(16,185,129,0.06);border-left:6px solid rgba(16,185,129,0.16)}
+.note-card[data-color="blue"]{box-shadow:0 10px 30px rgba(59,130,246,0.06);border-left:6px solid rgba(59,130,246,0.16)}
+.note-card[data-color="purple"]{box-shadow:0 10px 30px rgba(139,92,246,0.06);border-left:6px solid rgba(139,92,246,0.16)}
+.note-card[data-color="yellow"]{box-shadow:0 10px 30px rgba(245,158,11,0.06);border-left:6px solid rgba(245,158,11,0.14)}
+.note-card[data-color="neutral"]{border-left:6px solid rgba(255,255,255,0.02)}
+
+.note-head button{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:6px}
+.note-head button:hover{color:#fff}

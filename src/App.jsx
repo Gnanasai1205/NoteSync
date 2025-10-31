@@ -26,7 +26,7 @@ export default function App() {
         {route === 'login' && <Login onLogin={(name) => { setUser(name); setLoggedIn(true); localStorage.setItem('notesync_user', name); setRoute('notes') }} />}
       </main>
 
-      <footer className="footer">NoteSync — Smart Notes & Calendar • Local-first</footer>
+      <footer className="footer">NoteSync — Smart Notes & Calendar </footer>
     </div>
   )
 }
