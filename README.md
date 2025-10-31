@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # NoteSync — Smart Notes & Calendar 
+=======
+# NoteSync — Smart Notes & Calendar
+>>>>>>> d2c577aa34d7ec6cd171b05d729276e415846abb
 
 A small local-first React app (Vite) for notes and calendar events using browser localStorage. Features:
 
