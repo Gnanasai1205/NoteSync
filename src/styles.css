@@ -32,11 +32,28 @@ body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvet
 
 /* HOME */
 .home{display:flex;flex-direction:column;align-items:center;gap:8px;padding:40px 16px}
-.home h1{font-size:36px;margin:0;background:linear-gradient(90deg,var(--accent-200),#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--muted);font-size:15px;margin-bottom:10px}
+
+.hero{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;max-width:1200px;margin-bottom:26px}
+.hero > div{flex:1}
+.home h1{font-size:44px;margin:0;line-height:1.02;background:linear-gradient(90deg,var(--accent-200),#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:16px;margin:12px 0 18px;max-width:700px}
 .home-actions{display:flex;gap:12px}
-.home-actions button{background:linear-gradient(90deg,var(--accent-400),var(--accent-600));border:0;color:white;padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:var(--shadow);transition:transform .14s ease}
-.home-actions button:hover{transform:translateY(-3px)}
+.home-actions .btn{font-size:15px;padding:12px 18px}
+.hero-visual{display:flex;align-items:center;justify-content:center}
+.mock-device{width:220px;height:140px;border-radius:14px;background:linear-gradient(180deg,#061028,#0b1a33);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 60px rgba(2,6,23,0.6)}
+.device-screen{color:var(--muted);font-weight:600}
+
+.about{width:100%;max-width:1100px;margin:18px 0;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
+.about h2{margin:0 0 8px}
+.about p{margin:0;color:var(--muted)}
+
+.features{width:100%;max-width:1100px;margin:10px 0}
+.features h2{margin-bottom:12px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.feature-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:8px}
+.feature-ico{font-size:28px}
+.feature-card h3{margin:0}
+.feature-card p{margin:0;color:var(--muted);font-size:14px}
 
 .footer{text-align:center;padding:14px;color:var(--muted);font-size:13px}
 
